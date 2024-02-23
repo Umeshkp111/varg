@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: radial-gradient(black, green);
+            
+        }
+        #container{
+            height:150px;
+            width: 150px;
+            perspective: 1000px;
+
+        }
+        .cube{
+            transform-style: preserve-3d;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            animation: anime 3s infinite linear;
+            
+        }
+        .face{
+            
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            background-image: radial-gradient(transparent, skyblue, blue);
+        }
+        .top{
+            background-color: red;
+            transform: rotateX(90deg) translateZ(75px);
+            transition: all 5s;
+        }
+        .left{
+            background-color: blue;
+            transform: rotateX(-90deg) translateZ(75px);
+            transition: all 5s;
+            
+        }
+        .right{
+            background-color: greenyellow;
+            transition: all 5s;
+            transform: rotateY(90deg) translateZ(75px);
+        }
+        .bottom{
+            background-color: purple;
+            transition: all 5s;
+            transform: rotateY(-90deg) translateZ(75px);
+        }
+        .front{
+            background-color: aqua;
+            transition: all 5s;
+            transform: translateX(0) translateZ(75px);
+        }
+        .back{
+            background-color: khaki;
+            transition: all 5s;
+        transform: rotateX(180deg) translateZ(75px);
+    }
+   
+      @keyframes anime{
+          from{
+              transform: rotateX(0) rotateY(0);
+            }
+            to{
+                transform: rotateX(360deg) rotateY(360deg);
+
+        }
+      }
+      .cube:hover .top{
+        transform: rotateX(90deg) translateZ(125px);
+      }
+      .cube:hover .bottom{
+        transform: rotateY(-90deg) translateZ(125px);
+      }
+      .cube:hover .left{
+        transform: rotateX(-90deg) translateZ(125px);
+      }
+      .cube:hover .right{
+        transform: rotateY(90deg) translateZ(125px);
+      }
+      .cube:hover .front{
+        transform: translateX(0) translateZ(125px);
+      }
+      .cube:hover .back{
+        transform: rotateX(180deg) translateZ(125px);
+      }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="cube">
+            <div class="face top"></div>
+            <div class="face left"></div>
+            <div class="face right"></div>
+            <div class="face bottom"></div>
+            <div class="face front"></div>
+            <div class="face back"></div>
+        </div>
+    </div>
+</body>
+
+</html> 
